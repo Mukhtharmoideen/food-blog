@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+<head>
+  <style>
+    .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+padding-left: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+  </style>
+</head>
+<body id="top">
+
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        {% for i in pr %}
+        <li class="one_third third">
+          <figure><a class="imgover" href="{{i.get_url}}"><img src="{{ i.img.url }}" style="width:300px;height:300px" alt=""></a>
+            <figcaption>
+              <h6 class="heading">{{ i.name }}Rs</h6>
+              <p>{{ i.desc|truncatewords:10 }}</p>
+              <br>
+               <p>Price: {{ i.price }}</p>
+              <br>
+               <p>Stock left: {{ i.stock }}</p>
+            </figcaption>
+          </figure>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <hr class="btmspace-80">
+  </main>
+</div>
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<script src="{% static 'home/layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'home/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'home/layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+
+{% endblock %}

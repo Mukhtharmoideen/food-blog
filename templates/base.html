@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <title>Ecommerce</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'home/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="top">
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <h1><a href="/">Ecommerce</a></h1>
+      </div>
+
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li class="active"><a href="/">HOME</a></li>
+
+          <li class="active"><a href="{% url 'cartDetails'%}"><i class="fa fa-shopping-cart"></i>&nbsp;<sup>{{itc}}</sup></a></li>
+
+          <li class="active"><a href="/">LOGOUT</a></li>
+          <li class="active"><a href="">LOGIN</a></li>
+          <li class="active"><a href="/">REGISTER</a></li>
+
+        </ul>
+      </nav>
+    </header>
+  </div>
+  {% block content %}
+{% endblock %}
+<script src="{% static 'home/layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'home/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'home/layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>
