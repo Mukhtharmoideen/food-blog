@@ -23,7 +23,7 @@ def home(request, c_slug=None):
         products = paginator.page(page)
     except (EmptyPage, InvalidPage):
         products=paginator.page(paginator.num_pages)
-    return render(request, 'home.html', {'pr': product_list, 'ct': cat, "products": products})
+    return render(request, 'index.html', {'pr': product_list, 'ct': cat, "products": products})
 
 
 def product_detail(request, c_slug, product_slug):
